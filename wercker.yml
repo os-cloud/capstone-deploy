@@ -1,0 +1,9 @@
+box: python:2.7
+build:
+    steps:
+        - pip-install:
+            requirements_file: ""
+            packages_list: "ansible<2"
+        - script:
+            name: install ansible galaxy requirements
+            code: ansible-galaxy install -r ansible-role-requirements.yaml

@@ -1,2 +1,7 @@
 inventory
 capstone.conf
+
+# wercker
+_builds/
+_projects/
+_steps/
