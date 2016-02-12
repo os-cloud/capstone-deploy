@@ -34,6 +34,8 @@
     keystone_service_setup: false
     keystone_token_provider: capstone
     keystone_database_connection_string: none
+    keystone_public_endpoint: "https://identity.api.rackspacecloud.com"
+    keystone_service_adminuri: "https://identity.api.rackspacecloud.com"
     internal_lb_vip_address: localhost
     keystone_auth_admin_token: none
     keystone_rabbitmq_password: none
