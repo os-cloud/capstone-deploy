@@ -1,9 +1,19 @@
-box: python:2.7
+box: ubuntu:14.04
 build:
     steps:
-        - pip-install:
-            requirements_file: ""
-            packages_list: "ansible<2"
         - script:
-            name: install ansible galaxy requirements
+            name: Install apt requirements
+            code: |
+                apt-get update
+                # apt-transport-https is only required due to
+                # https://bugs.launchpad.net/openstack-ansible/+bug/1547541
+                apt-get install -V -y python-dev python-pip git-core apt-transport-https
+        - script:
+            name: Install pip requirements
+            code: pip install "ansible<2"
+        - script:
+            name: Install ansible galaxy requirements
             code: ansible-galaxy install -r ansible-role-requirements.yaml
+        - script:
+            name: Run playbook
+            code: ansible-playbook -i inventory_localhost deploy.yaml

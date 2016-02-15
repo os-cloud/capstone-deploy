@@ -1,4 +1,7 @@
-- hosts: keystone_all
+---
+
+- name: Deploy capstone
+  hosts: keystone_all
   roles:
   - os_keystone
   post_tasks:
@@ -18,11 +21,10 @@
     tags:
       - capstone
   - name: Drop capstone.conf
-    config_template:
-      src: capstone.conf
+    template:
+      src: templates/etc-capstone.conf
       dest: /etc/capstone/capstone.conf
-      config_overrides: "{{ capstone_overrides|default({}) }}"
-      config_type: ini
+      owner: keystone
     tags:
       - capstone
   vars:
