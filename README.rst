@@ -1,8 +1,13 @@
 Deploying Capstone
 ==================
 
+.. image:: https://app.wercker.com/status/e6feb4196b5f4849659de6585039007b/s/master
+   :target: https://app.wercker.com/#applications/56cd0b9aab54a673190541dc
+
 Deployment tooling for `Capstone <https://github.com/rackerlabs/capstone>`_.
 
+Usage
+-----
 
 Prior to deploying capstone, specific upstream dependencies need to be
 resolved. To resolve these using ``ansible-galaxy`` run the following::
