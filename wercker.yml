@@ -9,7 +9,14 @@ build:
         apt-get update
         # apt-transport-https is only required due to
         # https://bugs.launchpad.net/openstack-ansible/+bug/1547541
-        apt-get install -V -y python-dev python-pip git-core apt-transport-https
+        apt-get install -V -y python-dev git-core apt-transport-https curl \
+        libssl-dev
+    - script:
+      name: Get modern pip
+      code: curl https://bootstrap.pypa.io/get-pip.py -o /tmp/get-pip.py
+    - script:
+      name: Install pip
+      code: python /tmp/get-pip.py
     - script:
       name: Install pip requirements
       code: pip install "ansible<2" yamllint
