@@ -46,3 +46,20 @@
       auth:
         method: password
         password: capstone
+    # NOTE(lbragstad): We don't require all the pip packages that are included
+    # in the upstream os_keystone keystone_pip_packages list. Examples of these
+    # would be ldappool, lxml, PyMySQL, pysaml2, and python-ldap. Let's
+    # override keystone_pip_packages here so that we don't install pip packages
+    # we don't need.
+    keystone_pip_packages:
+      - argparse
+      - keystone
+      - keystonemiddleware
+      - oslo.log
+      - oslo.middleware
+      - pbr
+      - pycrypto
+      - python-keystoneclient
+      - python-memcached
+      - python-openstackclient
+      - repoze.lru
