@@ -12,10 +12,10 @@ Usage
 Prior to deploying capstone, specific upstream dependencies need to be
 resolved. To resolve these using ``ansible-galaxy`` run the following::
 
-    ansible-galaxy install --role-file=ansible-role-requirements.yaml \
+    ansible-galaxy install --role-file=ansible-role-requirements.yml \
                            --ignore-errors --force
 
-The ``deploy.yaml`` playbook will expect an inventory file which will look
+The ``deploy.yml`` playbook will expect an inventory file which will look
 like::
 
     [keystone_all]
@@ -31,4 +31,4 @@ The playbook will also expect us to provide a ``capstone.conf``::
 This account is provided by Rackspace. Once the ``capstone.conf`` and
 ``inventory`` files are in place we're ready to deploy::
 
-    ansible-playbook -i inventory deploy.yaml
+    ansible-playbook -i inventory deploy.yml
