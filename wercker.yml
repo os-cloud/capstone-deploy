@@ -32,3 +32,7 @@ build:
     - script:
       name: Run playbook
       code: ansible-playbook -i inventory_localhost deploy.yaml
+    - script:
+      name: Attempt to curl the keystone endpoint
+      # at least make sure the keystone service is running
+      code: curl http://localhost:5000/
